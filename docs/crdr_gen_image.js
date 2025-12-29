@@ -1,8 +1,8 @@
 const crdrContactData = {
   "Creative Drive Labs": [
     { icon: "Web", url: "https://www.crdrlabs.org/", label: "www.crdrlabs.org" },
-    { icon: "Email", url: "mailto:crdrlabs@neniam.net", vcfdata: "crdrlabs@neniam.net", label: "crdrlabs@neniam.net" },
-    { icon: "SMS", url: "sms:+14256107056", vcfdata: "+1-425-610-7056", label: "425-610-7056"},
+    { icon: "Email", url: "mailto:crdrlabs@neniam.net", label: "crdrlabs@neniam.net" },
+    { icon: "SMS", url: "sms:+14256107056", label: "425-610-7056"},
     { icon: "Mastodon", url: "https://hachyderm.io/@crdrlabs", },
     { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61581111038860", },
     { icon: "Instagram", url: "https://www.instagram.com/crdrlabs/#", },
@@ -12,12 +12,13 @@ const crdrContactData = {
     { icon: "BlueSky", url: "https://bsky.app/profile/crdrlabs.org", },
   ],
   "James Corey": [
-      { icon: "Email", url: "mailto:jmc@neniam.net", vcfdata: "jmc@neniam.net", label: "jmc@neniam.net" },
-      { icon: "SMS", url: "sms:+14256267844", vcfdata: "+1-425-626-7844", label: "Cell: 425-626-7844" },
+      { icon: "Email", url: "mailto:jmc@neniam.net", label: "jmc@neniam.net" },
+      { icon: "SMS", url: "sms:+14256267844", label: "Cell: 425-626-7844" },
       { icon: "Mastodon", url: "https://mastodon.acm.org/@jaymcor", },
       { icon: "LinkedIn", url: "https://www.linkedin.com/in/jmcorey/", },
   ],
 }
+
 
 /* Registry of image-generator fn--indexed by kind.
    Each fn takes an attribute map and returns an image URL.
@@ -159,52 +160,4 @@ class CrdrQuicklinksElement extends HTMLElement {
 // Define the element only once (protect against multiple inclusions)
 if (!customElements.get("crdr-quicklinks")) {
   customElements.define("crdr-quicklinks", CrdrQuicklinksElement);
-}
-
-function crdrGenerateVCard(who, morefields = []) {
-    const contact = crdrContactData[who];
-    if (!contact) return;
-    let email, url, tel;
-    contact.forEach(link => {
-        if (link.icon === "Email") {
-            email = link.url.replace(/^mailto:/, "");
-        }
-        if (link.icon === "Web") {
-            url = link.url;
-        }
-        if (link.icon === "SMS") {
-            tel = link.url.replace(/^sms:/, "");
-        }
-        if (link.icon === "Mastodon") {
-            mastodon = link.url;
-        }
-        if (link.icon === "LinkedIn") {
-            linkedin = link.url;
-        }
-    });
-    return [
-        "BEGIN:VCARD",
-        "VERSION:4.0",
-        `FN:${who}`,
-        email ? `EMAIL:${email}` : null,
-        url ? `URL:${url}` : null,
-        tel ? `TEL:${tel}` : null,
-        mastodon ? `URL;TYPE=mastodon:${mastodon}` : null,
-        linkedin ? `URL;TYPE=linkedin:${linkedin}` : null,
-        ...morefields,
-        "END:VCARD"
-    ].join("\r\n");
-}
-
-function crdrDownloadVCard(who, morefields = []) {
-    const vcardText = crdrGenerateVCard(who, morefields);
-    const blob = new Blob([vcardText], { type: "text/vcard" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `vcard:${who}.vcf`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
 }
