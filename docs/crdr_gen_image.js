@@ -161,7 +161,7 @@ if (!customElements.get("crdr-quicklinks")) {
   customElements.define("crdr-quicklinks", CrdrQuicklinksElement);
 }
 
-function crdrGenerateVCard(who) {
+function crdrGenerateVCard(who, morefields = []) {
     const contact = crdrContactData[who];
     if (!contact) return;
     let email, url, tel;
@@ -191,12 +191,13 @@ function crdrGenerateVCard(who) {
         tel ? `TEL:${tel}` : null,
         mastodon ? `URL;TYPE=mastodon:${mastodon}` : null,
         linkedin ? `URL;TYPE=linkedin:${linkedin}` : null,
+        ...morefields,
         "END:VCARD"
     ].join("\r\n");
 }
 
-function crdrDownloadVCard(who) {
-    const vcardText = crdrGenerateVCard(who);
+function crdrDownloadVCard(who, morefields = []) {
+    const vcardText = crdrGenerateVCard(who, morefields);
     const blob = new Blob([vcardText], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
