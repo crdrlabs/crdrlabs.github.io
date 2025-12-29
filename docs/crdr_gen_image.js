@@ -1,6 +1,7 @@
-const crdrQuickLinksData = [
+const crdrContactData = {
+  "Creative Drive Labs": [
     { icon: "Web", url: "https://www.crdrlabs.org/", label: "www.crdrlabs.org" },
-    { icon: "Email", url: "mailto:crdrlabs@neniam.net", vcfdata: "crdrlabs@neniam.net", label: "crdrlabs@neniam.net"},
+    { icon: "Email", url: "mailto:crdrlabs@neniam.net", vcfdata: "crdrlabs@neniam.net", label: "crdrlabs@neniam.net" },
     { icon: "SMS", url: "sms:+14256107056", vcfdata: "+1-425-610-7056", label: "425-610-7056"},
     { icon: "Mastodon", url: "https://hachyderm.io/@crdrlabs", },
     { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61581111038860", },
@@ -9,7 +10,14 @@ const crdrQuickLinksData = [
     { icon: "YouTube", url: "https://www.youtube.com/channel/UCNPX5YtjukWeVPAQpmj2czQ/", },
     { icon: "LinkedIn", url: "https://www.linkedin.com/company/crdrlabs", },
     { icon: "BlueSky", url: "https://bsky.app/profile/crdrlabs.org", },
-];
+  ],
+  "James Corey": [
+      { icon: "Email", url: "mailto:jmc@neniam.net", vcfdata: "jmc@neniam.net", label: "jmc@neniam.net" },
+      { icon: "SMS", url: "sms:+14256267844", vcfdata: "+1-425-626-7844", label: "Cell: 425-626-7844" },
+      { icon: "Mastodon", url: "https://mastodon.acm.org/@jaymcor", },
+      { icon: "LinkedIn", url: "https://www.linkedin.com/in/jmcorey/", },
+  ],
+}
 
 /* Registry of image-generator fn--indexed by kind.
    Each fn takes an attribute map and returns an image URL.
@@ -91,6 +99,7 @@ if (!customElements.get("crdr-img")) {
 }
 
 // Built-ins (but it can be extended further by similar calls in other JS)
+crdrRegisterImage("logo:AddPerson", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAACxMBAJqcGAAAASxJREFUSMftlb1KA1EQhc+aqF18AsE6vUQjiJDGylIFi7S+QF4llagQknRpAjZWhvzYGRDsfAJBJBBFDXw22XU39+7djSCkyOnm79yZMwNXWmIhQQ8fd38p/ySM8bzlNQAOJYkjAC5nMgDO4gkATgPrHMCSceIkcNlmByvOgbz5JQRoBtbNbwfYMDAJygB0yZGjD0DZQfAgGU3S127IHHhFn3rquZZ0oa4k6dVr28bY4wuAbwoxQ4ZEzJopXk9rCVJNUm4hDSIEbNExhLplM1Ix1FAjc7J12rjQeMy4tl8JEjvsRyIH3Aex47jyDQBGFGMfKPEO8LFqD9eBl8QbHQNVu4gFSc1EuVuStk13VlJGUomrBIIdu9s/pLzyKZY+sRM86S3l1Twvf4x/wQ/BHCLg/Unv2AAAAABJRU5ErkJggg==");
 crdrRegisterImage("logo:Web", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAqxJREFUSMftlUtIVFEcxn/3zvgqK181PYhCK+1FVARBEBFEQUQQRZugoBa1kWiRq1zmIsp1bXpAq1pElEbRiyIJM+nhiJo5lVDm4zrqeGfmPr4WOpKMk7b3O5tzv//9f5fznXO/A7MwMpe0jK0sIkgvrbQa+g9VLVS1vkqSEorLkdSnO9o7s+YcXdSoJNlW/3XV6kPPuVibxvBC5dO1l6hBCScsxcL920E1aobvS4efSm7Y+ylLu//R7uepUYP2eVlq/VUOoBo1AfTOd57Ji5/yWxTVxowm6gbHCeOwiUYiAGwkxANsIMRB2mjhEJ/ZbLhTCGg7DX6vzEAxg05ijMuaQ7aT9E2ALNPM821cM5/TxrWp1l+n7t4y/6zkHY6Ujg3Vqik1j+2SdDlSqgd6P1X7HDmqAt3SkJ89wdbo3V/vdOgVaI+k9SnOnKhuIEgdUMYXM5nB5c9UAM+JsjNdIERMYWAh3Rm3KUKxcg2XMKtSVHCimM9cwxXAak06tpOfsAXQki4gRqJNsGADdrQzRc4rNkODncJMAOSXBNYPvZCxoAw33cR9cpULeqzmv9jJJl6V6wdAH1Wd7kEXAdYBnazM6MFyekxPBaylOU2go4N+jgENFEw+rCm0m2yjETiKz+s0D9b4usoZNVACVOrxOF1BoY6Mz5dQQlJHqOS+YU3xBW+xLM0E/ujuDD9T/GxObeyV+SavavSh/cGbB0WlwTW/H4FpB4oKT/LEihceSNTn7s+UBoZ9V74uqF6WKsZ3oRFAWXqpEZ1UNB4ZCv0jEX7mDddLapenH9oBqtFbUIHuSWqTO9zdt2XaULMuJX9Lkhxd0U0164S6JMmzrZd9S2eUi/2rBm4PfXKiKde8+EjrQF3Pof+K9XYzuCxnRXbIz1Zf/JsTWZ2cvQMz4Q88ErNMp4h/aQAAAABJRU5ErkJggg==");
 crdrRegisterImage("logo:Email", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAJtJREFUSMftkzsOwjAQBQeEhESLfYFwGTrMTZ0D5QSR6KgfFYqzAduEJoWnW613/HkyNBqwSwutGDqY3pPTb5vuTfNaHL/PSys44+m/Dvf4rFxIinIK+kSQU5RUEKRLJ1JthcCeYy6sEkxjUZ25UqUgqFOU01EyimwK76g8MHBj5AEMwMUGmE8hrk1h+f7LLAqCEkbw92dqNLbBC+8GGwtFsq5BAAAAAElFTkSuQmCC");
 crdrRegisterImage("logo:SMS", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAARtJREFUSMdjYBgFww3wME7yfHPtPx7w5tokTx5GnAZM8vxPBJjkidMA/LYjXIGsB8U5//878z/5DuMVen36WLafgeHF2QSXj7/e/YaJ3/zFiMsT////+fH72zS/GuPf335/+/pSi+362v//IyQ3FSGL//+PrIcF1QhmdgYGJiZGRhZOBgYWzpmtmQklxxkYfHsZGBDiqIAFX6zYlOjMTuq7fA6fGib8Efv4HRvjm1tkG7AmU4RndX9a4t+fZBnw/nb13M5tFrlaYrPCyDKgwqM6TFiTgaF9a9vWJ0dxqUJLB8QleeR0gOKCt9eJ0Y5HFcV5gZPS3AgBokxfnv/7++/vBHeyy4UX5yjSzsBwfj5F2hkYdlSNls5DCwAAMRgUHh7ecbYAAAAASUVORK5CYII=");
@@ -124,8 +133,11 @@ class CrdrQuicklinksElement extends HTMLElement {
   render() {
     const classpass = this.getAttribute("classpass");
     const uselabel = this.hasAttribute("uselabel");
+    const who = this.getAttribute("who");
     this.innerHTML = "";
-    crdrQuickLinksData.forEach(link => {
+    const contact = crdrContactData[who];
+    if (!contact) return;
+    contact.forEach(link => {
       const a = document.createElement("a");
       a.href = link.url;
       let icon = link.icon;
@@ -147,4 +159,51 @@ class CrdrQuicklinksElement extends HTMLElement {
 // Define the element only once (protect against multiple inclusions)
 if (!customElements.get("crdr-quicklinks")) {
   customElements.define("crdr-quicklinks", CrdrQuicklinksElement);
+}
+
+function crdrGenerateVCard(who) {
+    const contact = crdrContactData[who];
+    if (!contact) return;
+    let email, url, tel;
+    contact.forEach(link => {
+        if (link.icon === "Email") {
+            email = link.url.replace(/^mailto:/, "");
+        }
+        if (link.icon === "Web") {
+            url = link.url;
+        }
+        if (link.icon === "SMS") {
+            tel = link.url.replace(/^sms:/, "");
+        }
+        if (link.icon === "Mastodon") {
+            mastodon = link.url;
+        }
+        if (link.icon === "LinkedIn") {
+            linkedin = link.url;
+        }
+    });
+    return [
+        "BEGIN:VCARD",
+        "VERSION:4.0",
+        `FN:${who}`,
+        email ? `EMAIL:${email}` : null,
+        url ? `URL:${url}` : null,
+        tel ? `TEL:${tel}` : null,
+        mastodon ? `URL;TYPE=mastodon:${mastodon}` : null,
+        linkedin ? `URL;TYPE=linkedin:${linkedin}` : null,
+        "END:VCARD"
+    ].join("\r\n");
+}
+
+function crdrDownloadVCard(who) {
+    const vcardText = crdrGenerateVCard(who);
+    const blob = new Blob([vcardText], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `vcard:${who}.vcf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
