@@ -1,3 +1,16 @@
+const crdrQuickLinksData = [
+    { icon: "Web", url: "https://www.crdrlabs.org/", label: "www.crdrlabs.org" },
+    { icon: "Email", url: "mailto:crdrlabs@neniam.net", vcfdata: "crdrlabs@neniam.net", label: "crdrlabs@neniam.net"},
+    { icon: "SMS", url: "sms:+14256107056", vcfdata: "+1-425-610-7056", label: "425-610-7056"},
+    { icon: "Mastodon", url: "https://hachyderm.io/@crdrlabs", },
+    { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61581111038860", },
+    { icon: "Instagram", url: "https://www.instagram.com/crdrlabs/#", },
+    { icon: "Pinterest", url: "https://www.pinterest.com/crdrlabs", },
+    { icon: "YouTube", url: "https://www.youtube.com/channel/UCNPX5YtjukWeVPAQpmj2czQ/", },
+    { icon: "LinkedIn", url: "https://www.linkedin.com/company/crdrlabs", },
+    { icon: "BlueSky", url: "https://bsky.app/profile/crdrlabs.org", },
+];
+
 /* Registry of image-generator fn--indexed by kind.
    Each fn takes an attribute map and returns an image URL.
 */
@@ -90,18 +103,6 @@ crdrRegisterImage("logo:LinkedIn", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUg
 crdrRegisterImage("logo:BlueSky", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+kJFwMHKTL0XU8AAAAQY2FOdgAAAOAAAAAgAAAAwAAAAACWS7KdAAAB50lEQVRIx+2Uv0scQRiG37sc+OuabBXRJhfhUggBK02wOcEyQf+GBIsrtbSzEaxsLGxT2NiYlPZ2glolQjgSWIgkbPa4A0/l9klxe7M7M6vYJ2+zzPt977Mzsx8r/Vdp8KDI9FTUVTKFsl7qqb7pZzHEhJ/phf7oi5JcD0I0aNHhjHUChPO2gUPAOmd0aNGwOhBim4H6HFG3EWm8zhH9tGvbB+yS6YTZDJHGZznJdewOq2VD6eZ2vKA91YZhSVJNe1rIdZjuDBBbh17UjgKzCrSjRaseW4CSJEVKrJYVbagiSapoQytWLVHkfCfEO26x1WYVIVZpO5Vb3tpfSYg3dHB1yjTTnHp+h9dDQMUwfilW1ZmeOTUlzXkjGeu3N2eM8xlfMXGB+4lx/whiiZDHKGTJndThsCxzTESPu8LgHT0ijln2Rz1DVGmwz3czspn6/GCfBtXCuEHMcEBMUriDhJgDZu6JS4gJDr2QCztkIg8oW4xJzTvUC104zrwm88uKVWzrSlOW81HSK8u5Urv4BIM7WKOX2+4lNWpc5pweaw/dgRhli+u0+YYmQjS5SZ1rthi9F5AiRvjAOV1CNhlDiDE2CelyzntGeOgHbEpTeq5IX9VP109UV6CWQj9U8nfh8h/3y/+X9RdNh0j9YgDwyQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wOS0yM1QwMjozNjowNiswMDowMPPSvu0AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDktMjNUMDI6MzM6MzIrMDA6MDAeZu7lAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDI1LTA5LTIzVDAzOjA3OjQxKzAwOjAwP8HDQAAAAABJRU5ErkJggg==");
 crdrRegisterImage("logo:User", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAQFJREFUSMdjYBgFFANmfJJMDE58ZoLPvv4gz+wa40eH/v39///To5WpHIwka2+1+f3tPxwcaCNRuwTTu1v/kcC/v9XGJBnQZPkfDRzuxhVOWIGwCLoIvyRJBnz8gC7y5Q1JXlBj/fQI1QutNiQG42Svv78Q2k/PIDkexZiO9sG0v7rkKUii9lLd52eQPfD97dIEErR3O/368h8DHOpiIU57luqP9/+xgjWZRGhnYri36z8O8OtLtDRBA+rN/uMBh7oIGnCkF58BHx8QNODRof94QZgEgaTMJYLfAlW0UMCImV3dRn5MLP/+/Pn59/ffX//+IssxMv3+fuL2aDE+CjABAGmgNI7ncv1dAAAAAElFTkSuQmCC");
 
-const crdrQuickLinksData = [
-    { icon: "Web", url: "https://www.crdrlabs.org/", label: "www.crdrlabs.org" },
-    { icon: "Email", url: "mailto:crdrlabs@neniam.net", label: "crdrlabs@neniam.net"},
-    { icon: "SMS", url: "sms:+14256107056", label: "425-610-7056"},
-    { icon: "Mastodon", url: "https://hachyderm.io/@crdrlabs", },
-    { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61581111038860", },
-    { icon: "Instagram", url: "https://www.instagram.com/crdrlabs/#", },
-    { icon: "Pinterest", url: "https://www.pinterest.com/crdrlabs", },
-    { icon: "YouTube", url: "https://www.youtube.com/channel/UCNPX5YtjukWeVPAQpmj2czQ/", },
-    { icon: "LinkedIn", url: "https://www.linkedin.com/company/crdrlabs", },
-    { icon: "BlueSky", url: "https://bsky.app/profile/crdrlabs.org", },
-];
 
 
 /* Implement <crdr-quicklinks> custom HTML element. */
