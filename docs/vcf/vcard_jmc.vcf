@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:James Corey
+ORG:Creative Drive Labs
+KIND:individual
+EMAIL:jmc@neniam.net
+TEL:+14256267844
+URL;TYPE=mastodon:https://mastodon.acm.org/@jaymcor
+URL;TYPE=linkedin:https://www.linkedin.com/in/jmcorey/
+END:VCARD
