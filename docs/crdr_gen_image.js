@@ -1,7 +1,7 @@
 const crdrContactData = {
   "Creative Drive Labs": [
     { icon: "Web", url: "https://www.crdrlabs.org/", label: "www.crdrlabs.org" },
-    { icon: "Email", url: "mailto:crdrlabs@neniam.net", label: "crdrlabs@neniam.net" },
+    { icon: "Email", url: "mailto:info@crdrlabs.org", label: "info@crdrlabs.org" },
     { icon: "SMS", url: "sms:+14256107056", label: "425-610-7056", },
     { icon: "Discord", url: "https://discord.gg/xcUe6ybPnU", },
     { icon: "Mastodon", url: "https://hachyderm.io/@crdrlabs", },
