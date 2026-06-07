@@ -44,8 +44,20 @@ positive and respectful interaction.
 * Seekers of sanctuary
 * Bohemians
 
-### Facilities
+### Current Facility
 
+```
+Creative Drive Labs
+10116 Main St, Suite 104
+Bothell, WA 98011-3448
+425-610-7056
+```
+
+* Miniature Precision Craft Lab (small office with basic maker equipment)
+
+### Future Facilities
+
+* Heavy duty lab (bigger makerspace equipment)
 * Commons (serene common space and gallery with open seating and tables)
 * Conference rooms, classrooms, and private rooms
 * Maker lab (emphasizing safe hands-free computer-controlled machines)
