@@ -51,16 +51,22 @@ Creative Drive Labs
 10116 Main St, Suite 104
 Bothell, WA 98011-3448
 425-610-7056
+info@crdrlabs.org
 ```
 
-* Miniature Precision Craft Lab (small office with basic maker equipment)
+* Miniature Precision Craft Lab
+  * Small (500 sq ft) small office with basic equipment
+  * 3DP, small CNC, laser, dye sub, electronics, s/w, fabric, graphic arts
 
-### Future Facilities
+### Future Facility Plans
+
+These plans are a few years out, but the goal is to actually have multiple labs
+in close proximity (co-located, potentially multiple buildings).
 
 * Heavy duty lab (bigger makerspace equipment)
 * Commons (serene common space and gallery with open seating and tables)
 * Conference rooms, classrooms, and private rooms
-* Maker lab (emphasizing safe hands-free computer-controlled machines)
+* Full maker lab (emphasizing safe hands-free computer-controlled machines)
 * Fit lab (modern and innovative fitness space)
 * Food lab (commercially approved kitchen and cooking class space)
 * Music lab (small sound-isolated recording studio and practice space)
